@@ -153,7 +153,7 @@ const Body: React.FC = ({ products }: any): ReactElement => {
                         position: "relative",
                         zIndex: 1,
                         opacity: 1,
-                        background: "transparent",
+                        background: "white",
                         color: "rgb(52, 71, 103)",
                         borderRadius: "0.5rem",
                         boxShadow:
