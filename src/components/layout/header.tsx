@@ -25,7 +25,7 @@ const Header: React.FC = (): ReactElement => {
 
   return (
     <AppBar position="static" sx={{ backgroundColor: "black" }}>
-      <Container maxWidth="xl">
+      <Container maxWidth="lg">
         <Toolbar disableGutters>
           {/* Mobile */}
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
