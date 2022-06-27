@@ -74,7 +74,8 @@ const styles = {
       "rgba(0, 0, 0, 0.1) 0rem 0.25rem 0.375rem -0.0625rem, rgba(0, 0, 0, 0.06) 0rem 0.125rem 0.25rem -0.0625rem",
     transform: "scale(0.94)",
     filter: "blur(12px)",
-    background: "url(/images/action-call.png) 0% 0% / cover transparent",
+    background:
+      "url(https://cf.ltkcdn.net/handbags/images/orig/201050-1698x1130-louisvuitton.jpg) 0% 0% / cover transparent",
     borderRadius: "0.5rem",
   },
   textBox: {
@@ -145,7 +146,7 @@ const Body: React.FC = ({ products }: any): ReactElement => {
                 <Paper variant="elevation" elevation={1} sx={styles.gridPaper}>
                   <Box sx={styles.itemImage}>
                     <img
-                      src="https://us.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-bo%C3%A9tie-mm-monogram-handbags--M45987_PM2_Front%20view.png?wid=656&hei=656"
+                      src="https://cf.ltkcdn.net/handbags/images/orig/201050-1698x1130-louisvuitton.jpg"
                       width="100%"
                       height="220px"
                       style={{
