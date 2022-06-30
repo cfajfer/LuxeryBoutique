@@ -7,6 +7,7 @@ module.exports = () => ({
       maxLimit: 20,
       apolloServer: {
         tracing: true,
+        introspection: true,
       },
     }
   }
