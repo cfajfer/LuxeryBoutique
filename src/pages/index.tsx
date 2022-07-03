@@ -1,11 +1,19 @@
 import type { NextPage } from "next";
+import client from "../apollo-client";
 import Head from "next/head";
 import ActionCall from "../components/homepage/actionCall";
 import Body from "../components/homepage/layout/body";
 import Layout from "../components/layout/layout";
 import styles from "../styles/Home.module.css";
+import {
+  allProducts,
+  purseFilter,
+  shoeFilter,
+  accessoryFilter,
+  sortDesc,
+} from "../queries";
 
-const Home: NextPage = () => {
+const Home: NextPage = ({ purses, shoes, accessories }: any) => {
   return (
     <div className={styles.container}>
       <Head>
@@ -19,10 +27,31 @@ const Home: NextPage = () => {
       </Head>
       <Layout>
         <ActionCall />
-        <Body />
+        <Body products={{ purses, shoes, accessories }} />
       </Layout>
     </div>
   );
+};
+
+export const getServerSideProps = async () => {
+  const filterArr = [purseFilter, shoeFilter, accessoryFilter];
+
+  const promiseArr = filterArr.map((filter: any) =>
+    client.query({
+      query: allProducts(filter, sortDesc),
+    }),
+  );
+
+  const [{ data: purseData }, { data: shoeData }, { data: accessoryData }] =
+    await Promise.all(promiseArr);
+
+  return {
+    props: {
+      purses: purseData.products.data.slice(0, 3),
+      shoes: shoeData.products.data.slice(0, 3),
+      accessories: accessoryData.products.data.slice(0, 3),
+    },
+  };
 };
 
 export default Home;
