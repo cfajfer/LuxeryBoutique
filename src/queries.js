@@ -4,6 +4,7 @@ export const allProducts = (filter = "", sort = "") => gql`
   query {
     products ${filter || sort ? `(${filter} ${sort})` : ""} {
       data {
+        id
         attributes {
           Price
           ProductName

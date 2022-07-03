@@ -9,8 +9,9 @@ import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import { ReactElement, useState } from "react";
+import Link from "next/link";
 
-const pages = ["Purses", "Shoes", "Accessories", "Shop All"];
+const pages = ["Handbags", "Shoes", "Accessories", "Shop All"];
 
 const Header: React.FC = (): ReactElement => {
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
@@ -58,9 +59,15 @@ const Header: React.FC = (): ReactElement => {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
+                <Link
+                  href={`/category/${
+                    page !== "Shop All" ? page.toLowerCase() : "all"
+                  }`}
+                >
+                  <MenuItem key={page} onClick={handleCloseNavMenu}>
+                    <Typography textAlign="center">{page}</Typography>
+                  </MenuItem>
+                </Link>
               ))}
             </Menu>
             <Typography
@@ -109,13 +116,19 @@ const Header: React.FC = (): ReactElement => {
             }}
           >
             {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, mx: 2, color: "white", display: "block" }}
+              <Link
+                href={`/category/${
+                  page !== "Shop All" ? page.toLowerCase() : "all"
+                }`}
               >
-                {page}
-              </Button>
+                <Button
+                  key={page}
+                  onClick={handleCloseNavMenu}
+                  sx={{ my: 2, mx: 2, color: "white", display: "block" }}
+                >
+                  {page}
+                </Button>
+              </Link>
             ))}
           </Box>
         </Toolbar>

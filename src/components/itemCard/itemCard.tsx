@@ -1,5 +1,6 @@
 import { Description } from "@mui/icons-material";
 import { Grid, Box, Paper, Typography, Button } from "@mui/material";
+import Link from "next/link";
 
 const styles = {
   gridPaper: {
@@ -113,7 +114,15 @@ const styles = {
 };
 
 const ItemCard: any = ({
-  props: { Price, ProductName, Description, Designer, ProductType, coverImage },
+  props: {
+    Price,
+    ProductName,
+    Description,
+    Designer,
+    ProductType,
+    coverImage,
+    id,
+  },
 }: any): JSX.Element => {
   return (
     <Grid item xs={12} md={6} lg={4}>
@@ -154,15 +163,17 @@ const ItemCard: any = ({
                 {Description}
               </Typography>
             </Box>
-            <Button
-              sx={{
-                border: "1px solid",
-                borderRadius: "0.5rem",
-                padding: "5px 10px",
-              }}
-            >
-              View Product
-            </Button>
+            <Link href={`/product/${id}`}>
+              <Button
+                sx={{
+                  border: "1px solid",
+                  borderRadius: "0.5rem",
+                  padding: "5px 10px",
+                }}
+              >
+                View Product
+              </Button>
+            </Link>
           </Box>
         </Paper>
       </Box>
