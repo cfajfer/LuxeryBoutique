@@ -155,10 +155,13 @@ const Home: NextPage = ({ purses, shoes, accessories }: any) => {
               <Grid
                 container
                 spacing={3}
-                sx={{ display: { xs: "flex", md: "none" } }}
+                sx={{ display: { xs: "flex", md: "none" }, overflow: "hidden" }}
               >
                 {productListJSX[0][0]}
                 <Carousel
+                  autoPlay={false}
+                  animation="slide"
+                  navButtonsAlwaysInvisible
                   sx={{ display: "contents" }}
                   indicatorContainerProps={{
                     style: {
@@ -170,6 +173,9 @@ const Home: NextPage = ({ purses, shoes, accessories }: any) => {
                 </Carousel>
                 {productListJSX[1][0]}
                 <Carousel
+                  autoPlay={false}
+                  animation="slide"
+                  navButtonsAlwaysInvisible
                   sx={{ display: "contents" }}
                   indicatorContainerProps={{
                     style: {
@@ -181,6 +187,9 @@ const Home: NextPage = ({ purses, shoes, accessories }: any) => {
                 </Carousel>
                 {productListJSX[2][0]}
                 <Carousel
+                  autoPlay={false}
+                  animation="slide"
+                  navButtonsAlwaysInvisible
                   sx={{ display: "contents" }}
                   indicatorContainerProps={{
                     style: {
