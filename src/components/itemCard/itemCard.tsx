@@ -154,7 +154,12 @@ const ItemCard: any = ({
             <Typography variant="h5" component="h5" sx={styles.titleText}>
               {ProductName}
             </Typography>
-            <Box sx={styles.descriptionbox}>
+            <Box
+              sx={{
+                ...styles.descriptionbox,
+                display: { xs: "none", md: "flex" },
+              }}
+            >
               <Typography
                 variant="body2"
                 component="p"
@@ -169,6 +174,7 @@ const ItemCard: any = ({
                   border: "1px solid",
                   borderRadius: "0.5rem",
                   padding: "5px 10px",
+                  display: { xs: "none", md: "flex" },
                 }}
               >
                 View Product

@@ -14,6 +14,7 @@ import {
 } from "../queries";
 import { Grid, Typography, Button } from "@mui/material";
 import ItemCard from "../components/itemCard/itemCard";
+import Carousel from "react-material-ui-carousel";
 
 const styles = {
   body: {
@@ -65,7 +66,7 @@ const Home: NextPage = ({ purses, shoes, accessories }: any) => {
           display: "inline-flex",
           alignItems: "center",
           justifyContent: "space-between",
-          marginBottom: "-24px",
+          marginBottom: { xs: "0px", md: "-24px" },
         }}
       >
         <Typography
@@ -150,11 +151,56 @@ const Home: NextPage = ({ purses, shoes, accessories }: any) => {
         <ActionCall />
         <Body
           children={
-            <Grid container spacing={3}>
-              {productListJSX[0]}
-              {productListJSX[1]}
-              {productListJSX[2]}
-            </Grid>
+            <>
+              <Grid
+                container
+                spacing={3}
+                sx={{ display: { xs: "flex", md: "none" } }}
+              >
+                {productListJSX[0][0]}
+                <Carousel
+                  sx={{ display: "contents" }}
+                  indicatorContainerProps={{
+                    style: {
+                      marginTop: "25px",
+                    },
+                  }}
+                >
+                  {productListJSX[0].slice(1, 4)}
+                </Carousel>
+                {productListJSX[1][0]}
+                <Carousel
+                  sx={{ display: "contents" }}
+                  indicatorContainerProps={{
+                    style: {
+                      marginTop: "25px",
+                    },
+                  }}
+                >
+                  {productListJSX[1].slice(1, 4)}
+                </Carousel>
+                {productListJSX[2][0]}
+                <Carousel
+                  sx={{ display: "contents" }}
+                  indicatorContainerProps={{
+                    style: {
+                      marginTop: "25px",
+                    },
+                  }}
+                >
+                  {productListJSX[2].slice(1, 4)}
+                </Carousel>
+              </Grid>
+              <Grid
+                container
+                spacing={3}
+                sx={{ display: { xs: "none", md: "flex" } }}
+              >
+                {productListJSX[0]}
+                {productListJSX[1]}
+                {productListJSX[2]}
+              </Grid>
+            </>
           }
         />
       </Layout>
