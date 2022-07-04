@@ -15,6 +15,7 @@ import {
 import { Grid, Typography, Button } from "@mui/material";
 import ItemCard from "../components/itemCard/itemCard";
 import Carousel from "react-material-ui-carousel";
+import Link from "next/link";
 
 const styles = {
   body: {
@@ -76,23 +77,25 @@ const Home: NextPage = ({ purses, shoes, accessories }: any) => {
         >
           {titleList[index]}
         </Typography>
-        <Typography variant="h5" component="h5" sx={{ display: "inline" }}>
-          <Button
-            sx={{
-              fontSize: "1.2rem",
-              opacity: 1,
-              textTransform: "none",
-              verticalAlign: "unset",
-              textDecoration: "none",
-              letterSpacing: "-0.125px",
-              fontWeight: 500,
-            }}
-          >
-            <span style={{ display: "flex", alignItems: "center" }}>
-              Shop All <ArrowForwardIosIcon sx={{ height: "1.2rem" }} />
-            </span>
-          </Button>
-        </Typography>
+        <Link href={`/category/${titleList[index].toLowerCase()}`}>
+          <Typography variant="h5" component="h5" sx={{ display: "inline" }}>
+            <Button
+              sx={{
+                fontSize: "1.2rem",
+                opacity: 1,
+                textTransform: "none",
+                verticalAlign: "unset",
+                textDecoration: "none",
+                letterSpacing: "-0.125px",
+                fontWeight: 500,
+              }}
+            >
+              <span style={{ display: "flex", alignItems: "center" }}>
+                Shop All <ArrowForwardIosIcon sx={{ height: "1.2rem" }} />
+              </span>
+            </Button>
+          </Typography>
+        </Link>
       </Grid>,
     );
     product?.forEach((product: any) => {
