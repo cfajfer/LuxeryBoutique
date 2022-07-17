@@ -28,6 +28,7 @@ const styles = {
     borderRadius: "0.5rem",
     boxShadow: "none",
     height: "100%",
+    overflow: "hidden",
   },
   itemBox: {
     marginTop: "24px",
