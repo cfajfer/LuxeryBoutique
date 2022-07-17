@@ -16,22 +16,25 @@ const styles = {
     overflowWrap: "break-word",
     backgroundClip: "border-box",
     border: "0px solid rgba(0, 0, 0, 0.125)",
-    borderRadius: "0.75rem",
+    borderRadius: { xs: "0 0 0.75rem 0.75rem", md: "0.75rem" },
     overflow: "visible",
     padding: "16px",
     backgroundColor: "rgba(255, 255, 255, 0.7)",
     backdropFilter: "saturate(200%) blur(30px)",
     boxShadow: "rgb(0 0 0 / 5%) 0rem 1.25rem 1.6875rem 0rem",
     marginBottom: { xs: "32px", md: "32px" },
-    marginTop: { xs: "-32px", md: "-64px" },
+    marginTop: { xs: "0px", md: "-64px" },
   },
 };
 
 const Body = ({ children }: any): ReactElement => {
   return (
-    <Container maxWidth={false}>
+    <Container maxWidth={false} sx={{ padding: { xs: 0 } }}>
       <Paper variant="elevation" elevation={1} sx={styles.body}>
-        <Container maxWidth="lg" sx={{ mt: { xs: "12px", md: "24px" } }}>
+        <Container
+          maxWidth="lg"
+          sx={{ mt: { xs: "12px", md: "24px" }, pr: { xs: 0 }, pl: { xs: 0 } }}
+        >
           {children}
         </Container>
       </Paper>

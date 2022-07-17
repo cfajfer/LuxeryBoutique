@@ -50,7 +50,7 @@ const styles = {
   },
 };
 
-const Category: NextPage = ({ products }: any) => {
+const Category: NextPage = ({ products, category }: any) => {
   const productListJSX: JSX.Element[] = [];
 
   products?.forEach((product: any) => {
@@ -88,6 +88,7 @@ const Category: NextPage = ({ products }: any) => {
           ProductType,
           coverImage,
           id,
+          isHomepage: false,
         }}
       />,
     );
@@ -105,7 +106,7 @@ const Category: NextPage = ({ products }: any) => {
         />
       </Head>
       <Layout>
-        <ActionCall />
+        <ActionCall title={category} />
         <Body
           children={
             <Grid container spacing={3}>
@@ -134,6 +135,7 @@ export const getServerSideProps = async (context: any) => {
   return {
     props: {
       products: data.products.data,
+      category,
     },
   };
 };

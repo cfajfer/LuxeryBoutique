@@ -158,7 +158,12 @@ const Home: NextPage = ({ purses, shoes, accessories }: any) => {
               <Grid
                 container
                 spacing={3}
-                sx={{ display: { xs: "flex", md: "none" }, overflow: "hidden" }}
+                sx={{
+                  display: { xs: "flex", md: "none" },
+                  overflow: "hidden",
+                  margin: "0",
+                  width: "100%",
+                }}
               >
                 {productListJSX[0][0]}
                 <Carousel
