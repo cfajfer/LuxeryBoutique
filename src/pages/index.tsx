@@ -68,6 +68,8 @@ const Home: NextPage = ({ purses, shoes, accessories }: any) => {
           alignItems: "center",
           justifyContent: "space-between",
           marginBottom: { xs: "0px", md: "-24px" },
+          marginTop: { xs: "0px" },
+          paddingTop: { xs: "0px!important" },
         }}
       >
         <Typography

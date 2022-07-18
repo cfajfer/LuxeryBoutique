@@ -106,7 +106,7 @@ const Category: NextPage = ({ products, category }: any) => {
         />
       </Head>
       <Layout>
-        <ActionCall title={category} />
+        <ActionCall title={category} productNum={products.length} />
         <Body
           children={
             <Grid container spacing={3}>

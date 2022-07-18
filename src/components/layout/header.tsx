@@ -25,18 +25,40 @@ const Header: React.FC = (): ReactElement => {
   };
 
   return (
-    <AppBar position="static" sx={{ backgroundColor: "black" }}>
+    <AppBar
+      position="static"
+      sx={{ backgroundColor: { xs: "rgba(255, 255, 255, 0.7)", md: "black" } }}
+    >
       <Container maxWidth="lg">
         <Toolbar disableGutters>
           {/* Mobile */}
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
+            <Typography
+              variant="h5"
+              noWrap
+              component="a"
+              href="/"
+              sx={{
+                display: { xs: "flex", md: "none" },
+                flexGrow: 1,
+                fontFamily: "Goudy Old Style",
+                fontWeight: "bold",
+                letterSpacing: { xs: "-1px", md: ".3rem" },
+                color: "black",
+                textDecoration: "none",
+                alignItems: "center",
+                fontSize: { xs: "32px" },
+              }}
+            >
+              Luxury Boutique
+            </Typography>
             <IconButton
               size="large"
-              aria-label="account of current user"
+              aria-label="menu"
               aria-controls="menu-appbar"
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
-              color="inherit"
+              color="default"
             >
               <MenuIcon />
             </IconButton>
@@ -70,24 +92,6 @@ const Header: React.FC = (): ReactElement => {
                 </Link>
               ))}
             </Menu>
-            <Typography
-              variant="h5"
-              noWrap
-              component="a"
-              href="/"
-              sx={{
-                display: { xs: "flex", md: "none" },
-                flexGrow: 1,
-                fontFamily: "Goudy Old Style",
-                fontWeight: 700,
-                letterSpacing: ".3rem",
-                color: "inherit",
-                textDecoration: "none",
-                alignItems: "center",
-              }}
-            >
-              Luxury Boutique
-            </Typography>
           </Box>
 
           {/* Desktop */}
@@ -133,6 +137,7 @@ const Header: React.FC = (): ReactElement => {
           </Box>
         </Toolbar>
       </Container>
+      <hr style={{ border: "1px solid #37476526", width: "100%", margin: 0 }} />
     </AppBar>
   );
 };
