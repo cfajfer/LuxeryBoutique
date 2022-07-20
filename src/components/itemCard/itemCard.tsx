@@ -60,6 +60,10 @@ const styles = {
     background: "transparent",
     color: "rgb(52, 71, 103)",
     boxShadow: "none",
+    minHeight: { xs: "90px", md: "270px" },
+    display: { xs: "flex", md: "block" },
+    flexDirection: { xs: "column" },
+    justifyContent: { xs: "space-between" },
   },
   metaText: {
     margin: "0px 0px 6px",
@@ -77,8 +81,7 @@ const styles = {
   titleText: {
     margin: "0px",
     fontSize: { xs: "1rem", md: "1.25rem" },
-    lineHeight: 1.375,
-    display: "inline",
+    lineHeight: 1.15,
     opacity: 1,
     textTransform: "none",
     verticalAlign: "unset",
@@ -86,6 +89,10 @@ const styles = {
     color: "rgb(52, 71, 103)",
     letterSpacing: "-0.125px",
     fontWeight: 700,
+    display: "-webkit-box",
+    ["-webkitLineClamp"]: "2",
+    ["-webkitBoxOrient"]: "vertical",
+    overflow: "hidden",
   },
   descriptionbox: {
     marginTop: "8px",
@@ -154,7 +161,15 @@ const ItemCard: any = ({
             {/* <Box sx={styles.imageBlur} /> */}
           </Box>
           <Box
-            sx={{ ...styles.itemImage, display: { xs: "none", md: "block" } }}
+            sx={{
+              ...styles.itemImage,
+              display: { xs: "none", md: "block" },
+              transition: "all 0.3s ease-in-out",
+              "&:hover": {
+                cursor: "pointer",
+                filter: "brightness(.975)",
+              },
+            }}
           >
             <Link href={`/product/${id}`}>
               <img
@@ -194,32 +209,35 @@ const ItemCard: any = ({
             >
               <b>${Price}</b>
             </Typography>
-            <Box
-              sx={{
-                ...styles.descriptionbox,
-                display: { xs: "none", md: "flex" },
-              }}
-            >
-              <Typography
-                variant="body2"
-                component="p"
-                sx={styles.descriptionText}
-              >
-                {Description}
-              </Typography>
-            </Box>
-            <Link href={`/product/${id}`}>
-              <Button
+            <Box>
+              <Box
                 sx={{
-                  border: "1px solid",
-                  borderRadius: "0.5rem",
-                  padding: "5px 10px",
+                  ...styles.descriptionbox,
                   display: { xs: "none", md: "flex" },
                 }}
               >
-                View Product
-              </Button>
-            </Link>
+                <Typography
+                  variant="body2"
+                  component="p"
+                  sx={styles.descriptionText}
+                >
+                  {Description}
+                </Typography>
+              </Box>
+
+              <Link href={`/product/${id}`}>
+                <Button
+                  sx={{
+                    border: "1px solid",
+                    borderRadius: "0.5rem",
+                    padding: "5px 10px",
+                    display: { xs: "none", md: "flex" },
+                  }}
+                >
+                  View Product
+                </Button>
+              </Link>
+            </Box>
           </Box>
         </Paper>
       </Box>
